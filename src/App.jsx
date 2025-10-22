@@ -405,13 +405,13 @@ function HomePage({ addToCart }) {
 
 function ProductCard({ product, addToCart }) {
   return (
-    <Card className="hover:shadow-2xl transition-transform transform hover:scale-105 rounded-2xl overflow-hidden">
-      <CardHeader className="p-0">
-        <div className="w-full aspect-square overflow-hidden">
+    <div className="hover:shadow-2xl transition-transform transform hover:scale-105 rounded-2xl overflow-hidden border border-gray-200">
+      <CardHeader className="p-0 m-0 border-none">
+        <div className="w-full aspect-square overflow-hidden m-0 pt-0 p-0">
           <img 
             src={product.image} 
             alt={product.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover m-0 p-0 pt-0 block"
           />
         </div>
       </CardHeader>
@@ -443,7 +443,7 @@ function ProductCard({ product, addToCart }) {
           {product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}
         </Button>
       </CardFooter>
-    </Card>
+    </div>
   );
 }
 
@@ -488,7 +488,7 @@ function ProductsPage({ products, addToCart }) {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {filteredProducts.map(product => (
           <ProductCard key={product.id} product={product} addToCart={addToCart} />
         ))}
