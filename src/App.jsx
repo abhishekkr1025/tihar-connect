@@ -12,8 +12,8 @@ import './App.css'
 const PRODUCTS = [
   {
     id: 1,
-    name: 'Natural Handmade Soap',
-    category: 'Personal Care',
+    name: 'Mustard Oil',
+    category: 'Food Products',
     price: 50,
     unit: 'Jail No. 2 - Chemical Unit',
     image: './oil.jpg',
@@ -22,74 +22,75 @@ const PRODUCTS = [
   },
   {
     id: 2,
-    name: 'Hand Sanitizer (500ml)',
+    name: 'Artificial Candles',
     category: 'Personal Care',
     price: 80,
     unit: 'Jail No. 2 - Chemical Unit',
-    image: 'https://images.unsplash.com/photo-1584744982491-665216d95f8b?w=400&h=300&fit=crop',
+    image: './3.jpg',
     description: 'Effective hand sanitizer with 70% alcohol content',
     stock: 100
   },
   {
     id: 3,
-    name: 'Fresh Dairy Milk (1L)',
+    name: 'Handmade Incense Cone',
     category: 'Dairy Products',
     price: 60,
     unit: 'Jail No. 3 - Dairy Unit',
-    image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=300&fit=crop',
+    image: '4.jpg',
     description: 'Fresh pasteurized milk from our dairy farm',
     stock: 30
   },
   {
     id: 4,
-    name: 'Pure Ghee (500g)',
+    name: 'A2 Desi Ghee',
     category: 'Dairy Products',
     price: 350,
     unit: 'Jail No. 3 - Dairy Unit',
-    image: 'https://images.unsplash.com/photo-1623428454614-abaf00244e52?w=400&h=300&fit=crop',
+    image: '6.jpg',
     description: 'Traditional pure ghee made from cow milk',
     stock: 20
-  },
-  {
-    id: 5,
-    name: 'Cotton Kurta',
-    category: 'Textiles',
-    price: 450,
-    unit: 'Jail No. 1 - Tailoring Unit',
-    image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&h=300&fit=crop',
-    description: 'Comfortable cotton kurta, hand-stitched by skilled artisans',
-    stock: 15
-  },
-  {
-    id: 6,
-    name: 'Handwoven Carpet',
-    category: 'Textiles',
-    price: 2500,
-    unit: 'Jail No. 1 - Weaving Unit',
-    image: 'https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&h=300&fit=crop',
-    description: 'Beautiful handwoven carpet with traditional designs',
-    stock: 5
-  },
-  {
-    id: 7,
-    name: 'Wooden Office Chair',
-    category: 'Furniture',
-    price: 3500,
-    unit: 'Jail No. 2 - Carpentry Unit',
-    image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=300&fit=crop',
-    description: 'Sturdy wooden chair perfect for office use',
-    stock: 8
-  },
-  {
-    id: 8,
-    name: 'Mango Pickle (500g)',
-    category: 'Food Products',
-    price: 120,
-    unit: 'Jail No. 4 - Food Processing Unit',
-    image: 'https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=400&h=300&fit=crop',
-    description: 'Traditional mango pickle with authentic spices',
-    stock: 40
   }
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Cotton Kurta',
+  //   category: 'Textiles',
+  //   price: 450,
+  //   unit: 'Jail No. 1 - Tailoring Unit',
+  //   image: '7.jpg',
+  //   description: 'Comfortable cotton kurta, hand-stitched by skilled artisans',
+  //   stock: 15
+  // },
+  // {
+  //   id: 6,
+  //   name: 'Handwoven Carpet',
+  //   category: 'Textiles',
+  //   price: 2500,
+  //   unit: 'Jail No. 1 - Weaving Unit',
+  //   image: 'https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&h=300&fit=crop',
+  //   description: 'Beautiful handwoven carpet with traditional designs',
+  //   stock: 5
+  // },
+  // {
+  //   id: 7,
+  //   name: 'Wooden Office Chair',
+  //   category: 'Furniture',
+  //   price: 3500,
+  //   unit: 'Jail No. 2 - Carpentry Unit',
+  //   image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=300&fit=crop',
+  //   description: 'Sturdy wooden chair perfect for office use',
+  //   stock: 8
+  // },
+  // {
+  //   id: 8,
+  //   name: 'Mango Pickle (500g)',
+  //   category: 'Food Products',
+  //   price: 120,
+  //   unit: 'Jail No. 4 - Food Processing Unit',
+  //   image: 'https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=400&h=300&fit=crop',
+  //   description: 'Traditional mango pickle with authentic spices',
+  //   stock: 40
+  // }
 ]
 
 // Mock orders for admin
@@ -339,7 +340,7 @@ function HomePage({ addToCart }) {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-6">
           <h3 className="text-3xl font-bold text-center mb-12">Featured Products</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {PRODUCTS.slice(0, 4).map(product => (
               <ProductCard key={product.id} product={product} addToCart={addToCart} />
             ))}
@@ -405,7 +406,7 @@ function HomePage({ addToCart }) {
 
 function ProductCard({ product, addToCart }) {
   return (
-    <div className="hover:shadow-2xl transition-transform transform hover:scale-105 rounded-2xl overflow-hidden border border-gray-200">
+    <div className="w-[280px] h-[620px] hover:shadow-2xl transition-transform transform hover:scale-105 rounded-2xl overflow-hidden border border-gray-200">
       <CardHeader className="p-0 m-0 border-none">
         <div className="w-full aspect-square overflow-hidden m-0 pt-0 p-0">
           <img 
@@ -488,7 +489,7 @@ function ProductsPage({ products, addToCart }) {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {filteredProducts.map(product => (
           <ProductCard key={product.id} product={product} addToCart={addToCart} />
         ))}
