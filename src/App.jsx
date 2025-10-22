@@ -337,9 +337,9 @@ function HomePage({ addToCart }) {
 
       {/* Featured Products */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-6">
           <h3 className="text-3xl font-bold text-center mb-12">Featured Products</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PRODUCTS.slice(0, 4).map(product => (
               <ProductCard key={product.id} product={product} addToCart={addToCart} />
             ))}
@@ -405,27 +405,38 @@ function HomePage({ addToCart }) {
 
 function ProductCard({ product, addToCart }) {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-2xl transition-transform transform hover:scale-105 rounded-2xl overflow-hidden">
       <CardHeader className="p-0">
-        <img 
-          src={product.image} 
-          alt={product.name}
-          className="w-full h-48 object-cover rounded-t-lg"
-        />
+        <div className="w-full aspect-square overflow-hidden">
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </CardHeader>
-      <CardContent className="p-4">
-        <Badge className="mb-2 bg-orange-100 text-orange-700">{product.category}</Badge>
-        <CardTitle className="text-lg mb-2">{product.name}</CardTitle>
-        <CardDescription className="text-sm mb-2">{product.description}</CardDescription>
-        <p className="text-xs text-gray-500 mb-2">{product.unit}</p>
-        <div className="flex justify-between items-center">
+
+      <CardContent className="p-6">
+        <Badge className="mb-3 bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full">
+          {product.category}
+        </Badge>
+
+        <CardTitle className="text-xl font-semibold mb-2">{product.name}</CardTitle>
+        <CardDescription className="text-sm text-gray-600 mb-3 line-clamp-2">
+          {product.description}
+        </CardDescription>
+
+        <p className="text-xs text-gray-500 mb-3">{product.unit}</p>
+
+        <div className="flex justify-between items-center mb-3">
           <span className="text-2xl font-bold text-orange-600">₹{product.price}</span>
           <span className="text-sm text-gray-500">{product.stock} in stock</span>
         </div>
       </CardContent>
-      <CardFooter className="p-4 pt-0">
+
+      <CardFooter className="p-6 pt-0">
         <Button 
-          className="w-full bg-orange-600 hover:bg-orange-700" 
+          className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg font-medium transition-colors"
           onClick={() => addToCart(product)}
           disabled={product.stock === 0}
         >
@@ -433,8 +444,9 @@ function ProductCard({ product, addToCart }) {
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
+
 
 function ProductsPage({ products, addToCart }) {
   const [selectedCategory, setSelectedCategory] = useState('All')
