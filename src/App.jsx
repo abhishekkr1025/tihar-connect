@@ -16,7 +16,7 @@ const PRODUCTS = [
     category: 'Personal Care',
     price: 50,
     unit: 'Jail No. 2 - Chemical Unit',
-    image: 'https://images.unsplash.com/photo-1584744982491-665216d95f8b?w=400&h=300&fit=crop',
+    image: './oil.jpg',
     description: 'Pure natural soap made with organic ingredients',
     stock: 50
   },
