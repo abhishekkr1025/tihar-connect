@@ -406,7 +406,7 @@ function HomePage({ addToCart }) {
 
 function ProductCard({ product, addToCart }) {
   return (
-    <div className="w-[280px] h-[620px] hover:shadow-2xl transition-transform transform hover:scale-105 rounded-2xl overflow-hidden border border-gray-200">
+    <div className="lg:w-[280px] lg:h-[620px] hover:shadow-2xl transition-transform transform hover:scale-105 rounded-2xl overflow-hidden border border-gray-200">
       <CardHeader className="p-0 m-0 border-none">
         <div className="w-full aspect-square overflow-hidden m-0 pt-0 p-0">
           <img 
